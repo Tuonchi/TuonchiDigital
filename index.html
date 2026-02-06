@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tuonchi Digital - Professional web design, website development, WhatsApp automation, and SEO services for small businesses across Kenya. Fast, modern, mobile-friendly websites that convert.">
+  <meta name="keywords" content="web design Kenya, website developers Kenya, WhatsApp automation Kenya, small business websites Kenya, SEO Kenya, web developer Nairobi">
+  <title>Tuonchi Digital | Professional Websites & Digital Solutions in Kenya</title>
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f9fa;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --accent: #C85A54;
+      --accent-hover: #A04A45;
+      --border: #e0e0e0;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --shadow-hover: rgba(200, 90, 84, 0.2);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #1a1a1a;
+      --bg-secondary: #242424;
+      --bg-card: #2d2d2d;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --accent: #D87A73;
+      --accent-hover: #E89A93;
+      --border: #3d3d3d;
+      --shadow: rgba(0, 0, 0, 0.3);
+      --shadow-hover: rgba(216, 122, 115, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen', 'Ubuntu', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated Background Elements */
+    .bg-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .shape-1 {
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, var(--accent), transparent);
+      top: -250px;
+      right: -250px;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(225deg, var(--accent), transparent);
+      bottom: -200px;
+      left: -200px;
+      animation-delay: -10s;
+    }
+
+    .shape-3 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(45deg, var(--accent), transparent);
+      top: 40%;
+      left: 50%;
+      animation-delay: -5s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -50px) rotate(120deg); }
+      66% { transform: translate(-20px, 20px) rotate(240deg); }
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(200, 90, 84, 0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] .navbar {
+      background: rgba(26, 26, 26, 0.85);
+      border-bottom: 1px solid rgba(216, 122, 115, 0.1);
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    [data-theme="dark"] .navbar.scrolled {
+      background: rgba(26, 26, 26, 0.95);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.02);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 1.3rem;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(180deg) scale(1.1);
+      border-color: var(--accent);
+      box-shadow: 0 6px 20px var(--shadow-hover);
+    }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .mobile-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      transition: all 0.3s ease;
+      border-radius: 3px;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%), url('images/hero-bg.png') center/cover no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-blend-mode: overlay;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(200, 90, 84, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(200, 90, 84, 0.08) 0%, transparent 50%);
+      animation: heroGlow 8s ease-in-out infinite alternate;
+    }
+
+    [data-theme="dark"] .hero::before {
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(216, 122, 115, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(216, 122, 115, 0.12) 0%, transparent 50%);
+    }
+
+    @keyframes heroGlow {
+      0% { opacity: 0.5; transform: scale(1); }
+      100% { opacity: 0.8; transform: scale(1.1); }
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(to top, var(--bg-primary), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: rgba(200, 90, 84, 0.08);
+      border: 1px solid rgba(200, 90, 84, 0.2);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.6s ease;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(200, 90, 84, 0.1);
+    }
+
+    [data-theme="dark"] .hero-badge {
+      background: rgba(216, 122, 115, 0.12);
+      border-color: rgba(216, 122, 115, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.6s ease 0.2s both;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero .subtitle {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.6s ease 0.4s both;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.6s ease 0.6s both;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      color: white;
+      box-shadow: 0 8px 24px var(--shadow-hover);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px var(--shadow-hover);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 2px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      animation: pulse 2s infinite;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0.2); }
+    }
+
+    /* Section Styles */
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 80px;
+      position: absolute;
+      top: -1px;
+      left: 0;
+      overflow: hidden;
+    }
+
+    .section-divider svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(200, 90, 84, 0.08);
+      border: 1px solid rgba(200, 90, 84, 0.2);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      backdrop-filter: blur(10px);
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .section-badge {
+      background: rgba(216, 122, 115, 0.12);
+      border-color: rgba(216, 122, 115, 0.3);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Intro Section */
+    .intro-section {
+      background: var(--bg-secondary);
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .intro-content {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .intro-content p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .benefit-card {
+      background: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 16px 16px 0 0;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+      border-color: rgba(200, 90, 84, 0.3);
+    }
+
+    .benefit-card:hover::before {
+      opacity: 1;
+    }
+
+    .benefit-card .icon {
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      display: block;
+      filter: drop-shadow(0 4px 8px rgba(200, 90, 84, 0.2));
+    }
+
+    .benefit-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .benefit-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(200, 90, 84, 0.05) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      border-color: rgba(200, 90, 84, 0.3);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(200, 90, 84, 0.1) 0%, rgba(200, 90, 84, 0.05) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(200, 90, 84, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 12px 24px rgba(200, 90, 84, 0.2);
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-link:hover {
+      gap: 0.9rem;
+      transform: translateX(4px);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .project-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+      border-color: rgba(200, 90, 84, 0.3);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(200, 90, 84, 0.1) 0%, transparent 100%);
+      opacity: 0.8;
+    }
+
+    .project-content {
+      padding: 2rem;
+      position: relative;
+    }
+
+    .project-tag {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: rgba(200, 90, 84, 0.08);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-card p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* WhatsApp CTA Box */
+    .whatsapp-cta {
+      background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+      border: 2px solid #25D366;
+      border-radius: 24px;
+      padding: 3rem;
+      text-align: center;
+      margin: 4rem auto;
+      max-width: 700px;
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .whatsapp-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    [data-theme="dark"] .whatsapp-cta {
+      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+      border-color: #25D366;
+    }
+
+    .whatsapp-cta h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #1B5E20;
+      position: relative;
+      z-index: 1;
+    }
+
+    [data-theme="dark"] .whatsapp-cta h3 {
+      color: #E8F5E9;
+    }
+
+    .whatsapp-cta p {
+      font-size: 1.1rem;
+      color: #2E7D32;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    [data-theme="dark"] .whatsapp-cta p {
+      color: #C8E6C9;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      color: white;
+      text-align: center;
+      border-radius: 24px;
+      padding: 5rem 2rem;
+      margin: 0 5%;
+      box-shadow: 0 20px 60px var(--shadow-hover);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section .btn {
+      background: white;
+      color: var(--accent);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-section .btn:hover {
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+      padding: 4rem 0 2rem;
+      margin-top: 100px;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.8rem;
+      transition: all 0.3s ease;
+      line-height: 1.7;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .footer-seo {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    /* Contact Cards */
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: var(--bg-card);
+      border-radius: 16px;
+      text-decoration: none;
+      border: 2px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+      border-color: var(--accent);
+    }
+
+    .contact-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .contact-card:hover .contact-icon {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-bg {
+      background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+    }
+
+    .email-bg {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .animate.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid var(--border);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      [data-theme="dark"] .nav-links {
+        background: rgba(26, 26, 26, 0.95);
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+
+      .cta-section {
+        padding: 3rem 1.5rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .shape {
+        filter: blur(80px);
+      }
+
+      .contact-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <!-- Animated Background Shapes -->
+  <div class="bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <a href="#home" class="logo">Tuonchi<span>Digital</span></a>
+        
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <span id="themeIcon">🌙</span>
+          </button>
+          <div class="mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">🇰🇪 Kenya-Based Digital Agency</div>
+        <h1>
+          Professional Websites & Digital Automation<br>
+          <span class="highlight">Built to Grow Kenyan Businesses</span>
+        </h1>
+        <p class="subtitle">Tuonchi Digital helps small businesses in Kenya get more customers through modern websites, WhatsApp automation, and smart SEO strategies.</p>
+        <div class="hero-cta">
+          <a href="https://wa.me/254754401739?text=Hi%20Tuonchi%20Digital!%20I'm%20interested%20in%20your%20services" class="btn btn-primary">
+            💬 Get Free WhatsApp Consultation
+          </a>
+          <a href="#portfolio" class="btn btn-secondary">View Our Work →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="intro-section">
+    <div class="section-divider">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C300,80 900,80 1200,0 L1200,120 L0,120 Z" fill="var(--bg-secondary)"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="intro-content animate">
+        <p>At Tuonchi Digital, we specialize in building <strong>fast, modern, and mobile-friendly websites</strong> designed to convert visitors into customers. We work with startups, SMEs, hotels, shops, and service providers across Kenya who want a strong and reliable online presence.</p>
+        <p>Beyond design, we help businesses <strong>automate customer communication</strong> using WhatsApp and SMS, improve visibility on Google, and streamline how clients discover and contact them online.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Help You Achieve -->
+  <section style="padding: 80px 0;">
+    <div class="container">
+      <div class="section-header animate">
+        <div class="section-badge">Our Impact</div>
+        <h2 class="section-title">What Tuonchi Digital Helps You Achieve</h2>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card animate">
+          <span class="icon">✨</span>
+          <h3>Professional Website</h3>
+          <p>A modern, trustworthy online presence that builds credibility with your customers</p>
+        </div>
+
+        <div class="benefit-card animate">
+          <span class="icon">⚡</span>
+          <h3>Faster Customer Responses</h3>
+          <p>WhatsApp automation ensures instant replies and better customer satisfaction</p>
+        </div>
+
+        <div class="benefit-card animate">
+          <span class="icon">🔍</span>
+          <h3>Better Google Visibility</h3>
+          <p>SEO optimization helps customers find your business when searching online</p>
+        </div>
+
+        <div class="benefit-card animate">
+          <span class="icon">📈</span>
+          <h3>More Inquiries & Sales</h3>
+          <p>Convert website visitors into real customers with clear calls-to-action</p>
+        </div>
+
+        <div class="benefit-card animate">
+          <span class="icon">🌐</span>
+          <h3>24/7 Digital Presence</h3>
+          <p>Your business works around the clock, even when you're offline</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" style="background: var(--bg-secondary); position: relative;">
+    <div class="section-divider">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C300,80 900,80 1200,0 L1200,120 L0,120 Z" fill="var(--bg-secondary)"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="section-header animate">
+        <div class="section-badge">What We Offer</div>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Clear, practical digital solutions designed to help your business attract customers and grow sustainably.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card animate">
+          <div class="service-icon">🎨</div>
+          <h3>Website Design & Development</h3>
+          <p>We design and develop custom websites that are fast, secure, mobile-responsive, and optimized for search engines. Every website is built to clearly communicate your services and convert visitors into real customers.</p>
+          <a href="#contact" class="service-link">Get Started →</a>
+        </div>
+
+        <div class="service-card animate">
+          <div class="service-icon">🔄</div>
+          <h3>Website Redesign & Optimization</h3>
+          <p>If your website looks outdated, loads slowly, or fails to generate leads, we redesign and optimize it for better performance, user experience, and visibility on Google.</p>
+          <a href="#contact" class="service-link">Upgrade Your Site →</a>
+        </div>
+
+        <div class="service-card animate">
+          <div class="service-icon">💬</div>
+          <h3>WhatsApp & SMS Automation</h3>
+          <p>We help businesses automate customer inquiries, follow-ups, bookings, and notifications using WhatsApp and SMS. This reduces manual work while improving response time and customer satisfaction.</p>
+          <a href="#contact" class="service-link">Automate Now →</a>
+        </div>
+
+        <div class="service-card animate">
+          <div class="service-icon">📈</div>
+          <h3>SEO & Online Presence</h3>
+          <p>We optimize your website for search engines, improve local visibility, and help customers find your business online through Google Search and Google Business Profile optimization.</p>
+          <a href="#contact" class="service-link">Boost Visibility →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp CTA -->
+  <section style="padding: 60px 0;">
+    <div class="container">
+      <div class="whatsapp-cta animate">
+        <h3>Why Contact Us via WhatsApp?</h3>
+        <p>We use WhatsApp as our primary communication channel to ensure fast response, easy consultation, and direct support—no long email delays.</p>
+        <a href="https://wa.me/254754401739?text=Hi%20Tuonchi%20Digital!%20I'd%20like%20to%20discuss%20my%20project" class="btn btn-primary">
+          💬 Start a Conversation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" style="background: var(--bg-secondary); position: relative;">
+    <div class="section-divider">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C300,80 900,80 1200,0 L1200,120 L0,120 Z" fill="var(--bg-secondary)"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="section-header animate">
+        <div class="section-badge">Our Work</div>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">A selection of websites and digital solutions built to improve customer experience, automation, and online visibility.</p>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card animate">
+          <div class="project-image">📱</div>
+          <div class="project-content">
+            <span class="project-tag">WhatsApp Automation</span>
+            <h3>SendPro Kenya</h3>
+            <p>A bulk SMS and WhatsApp automation platform designed to help businesses send messages, manage contacts, and automate communication efficiently.</p>
+          </div>
+        </div>
+
+        <div class="project-card animate">
+          <div class="project-image">🏨</div>
+          <div class="project-content">
+            <span class="project-tag">Website Development</span>
+            <h3>Hospitality Website</h3>
+            <p>Modern booking platform with integrated payment system and automated guest communication, improving direct reservations.</p>
+          </div>
+        </div>
+
+        <div class="project-card animate">
+          <div class="project-image">🛍️</div>
+          <div class="project-content">
+            <span class="project-tag">E-Commerce</span>
+            <h3>Retail Business Platform</h3>
+            <p>Complete online store with M-Pesa integration, inventory management, and customer order tracking system.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header animate">
+        <div class="section-badge">About Us</div>
+        <h2 class="section-title">Who We Are</h2>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1.2rem; color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.5rem;" class="animate">
+          Tuonchi Digital is a Kenya-based digital agency focused on helping small businesses grow through practical, affordable, and effective digital solutions.
+        </p>
+        <p style="font-size: 1.2rem; color: var(--text-secondary); line-height: 1.9;" class="animate">
+          We understand the local market, customer behavior, and challenges faced by Kenyan businesses. Our goal is simple: build digital tools that help you attract customers, communicate faster, and grow sustainably.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section>
+    <div class="cta-section animate">
+      <h2>Ready to Improve Your Online Presence?</h2>
+      <p>Contact us today for a free consultation and let's discuss how we can help your business grow.</p>
+      <a href="https://wa.me/254754401739?text=Hi!%20I'm%20ready%20to%20start%20my%20project" class="btn">💬 Start Your Project Today</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+<section id="contact" style="background: var(--bg-secondary); position: relative;">
+  <div class="container">
+
+    <div style="max-width: 700px; margin: 0 auto;">
+      <div style="display: grid; gap: 2rem; margin-bottom: 3rem;">
+
+        <!-- WhatsApp -->
+        <a 
+          href="https://wa.me/254754401739?text=Hi%20Tuonchi%20Digital!%20I%20need%20help%20with%20a%20website"
+          class="contact-card animate"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="contact-icon whatsapp-bg">💬</div>
+          <div>
+            <h4>WhatsApp (Recommended)</h4>
+            <p>Chat with us instantly</p>
+          </div>
+        </a>
+
+        <!-- Email -->
+        <a 
+          href="mailto:jamesgichohi4639@gmail.com"
+          class="contact-card animate"
+        >
+          <div class="contact-icon email-bg">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p>jamesgichohi4639@gmail.com</p>
+          </div>
+        </a>
+
+        <!-- Phone -->
+        <a 
+          href="tel:+254754401739"
+          class="contact-card animate"
+        >
+          <div class="contact-icon phone-bg">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p>+254 754 401 739</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Tuonchi<span style="color: var(--accent);">Digital</span></h3>
+          <p>Professional web design, development, and digital automation for growing Kenyan businesses.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-section">
+          <h3>Our Services</h3>
+          <a href="#services">Website Design & Development</a>
+          <a href="#services">Website Redesign & Optimization</a>
+          <a href="#services">WhatsApp & SMS Automation</a>
+          <a href="#services">SEO & Online Presence</a>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>📍 Nyeri, Kenya</p>
+          <p>📱 WhatsApp: +254 754 401 739</p>
+          <p>✉️ jamesgichohi4639@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="footer-seo">
+        <p>Tuonchi Digital provides professional web design, website development, WhatsApp automation, and SEO services for businesses across Kenya, including Nairobi, Nyeri, Nanyuki, and surrounding regions. We specialize in helping small businesses, startups, hotels, shops, and service providers establish a strong online presence.</p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Tuonchi Digital. All rights reserved. | Built with ❤️ in Kenya</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/254754401739?text=Hi%20Tuonchi%20Digital!%20I%20need%20help" class="whatsapp-float" aria-label="Contact us on WhatsApp" title="Chat with us on WhatsApp">
+    💬
+  </a>
+
+  <script>
+    // Theme Toggle with localStorage
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', savedTheme);
+    themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+
+    // Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const animateElements = document.querySelectorAll('.animate');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    animateElements.forEach(el => observer.observe(el));
+
+    // Active navigation highlighting
+    const sections = document.querySelectorAll('section');
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinksItems.forEach(link => {
+        link.classList.remove('active');
+        if (current && link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const navHeight = navbar.offsetHeight;
+          const targetPosition = target.offsetTop - navHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
